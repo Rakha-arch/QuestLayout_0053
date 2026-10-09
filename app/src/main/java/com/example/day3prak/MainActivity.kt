@@ -7,10 +7,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+// 💡 PERBAIKAN 1: Impor tema yang benar sesuai nama package day3prak
 import com.example.day3prak.ui.theme.Day3prakTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,30 +18,22 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            // 💡 PERBAIKAN 1: Menggunakan tema Day3prakTheme
             Day3prakTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    // 💡 PERBAIKAN 2: Menggunakan nama 'ActifitasPertama' (pakai 'f' sesuai file UI Anda)
+                    // serta meneruskan parameter innerPadding agar modifier Scaffold terpakai
+                    ActifitasPertama(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun ActifitasPertamaPreview() {
     Day3prakTheme {
-        Greeting("Android")
+        ActifitasPertama(modifier = Modifier)
     }
 }
